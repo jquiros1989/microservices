@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CalculadoraMonoliticaApplication {
 
 	public static void main(String[] args) {
+		/** Comment **/
 		SpringApplication.run(CalculadoraMonoliticaApplication.class, args);
 	}
 
