@@ -5,4 +5,4 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
-rootProject.name = 'calculadora-monolitica'
+rootProject.name = 'calculadora-monolitica-cliente'
