@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FileStoreService {
 	
-	private final static String fileName = "sumaFile.txt";
+	private final static String fileName = "resultado/sumaFile.txt";
 
 	
 	public void saveFile(String content) {
