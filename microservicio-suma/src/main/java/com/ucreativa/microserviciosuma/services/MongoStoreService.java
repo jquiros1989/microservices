@@ -4,11 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Service;
 
 import com.ucreativa.microservicios.dao.SumaRepository;
 import com.ucreativa.microservicios.model.Suma;
 
+@EnableMongoRepositories(basePackages = { "com.ucreativa.microservicios.dao" })
 @Service
 public class MongoStoreService {
 
@@ -17,7 +19,7 @@ public class MongoStoreService {
 	
 	public void saveIntoRepository(String operacion, String resultado) {
 		Suma sumaToSave = new Suma(new Date(), operacion, resultado);
-		this.repository.save(sumaToSave);
+		repository.save(sumaToSave);
 	}
 
 	public List<Suma> getAllSumas() {
