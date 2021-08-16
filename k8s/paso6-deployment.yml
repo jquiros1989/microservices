@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+   app: paso6-deployment
+  name: paso6-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: paso6-deployment
+  template:
+    metadata:
+      labels:
+        app: paso6-deployment
+    spec:
+      containers:
+      - image: jquiros1989/pythonucreativa:pythonMultiplicacion
+        name: python-service
+        resources: {}
+status: {}
