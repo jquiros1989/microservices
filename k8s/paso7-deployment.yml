@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: paso7-deployment
+  name: paso7-deployment
+spec:
+  replicas: 8
+  selector:
+    matchLabels:
+      app: paso7-deployment
+  template:
+    metadata:
+      labels:
+        app: paso7-deployment
+    spec:
+      containers:
+      - image: ucreativaregistryclase10.azurecr.io/pythonmultiplicacion:1.0.0
+        name: python-service
+      nodeSelector:
+        processing: "aqui"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: paso7-service
+spec:
+  type: LoadBalancer
+  ports: 
+    - targetPort: 2000
+      port: 2000
+  selector: 
+     app: paso7-deployment

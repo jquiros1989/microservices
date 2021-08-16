@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: otropaso7-deployment
+  name: otropaso7-deployment
+spec:
+  replicas: 20
+  selector:
+    matchLabels:
+      app: otropaso7-deployment
+  template:
+    metadata:
+      labels:
+        app: otropaso7-deployment
+    spec:
+      containers:
+      - image: ucreativaregistryclase10.azurecr.io/pythonmultiplicacion:1.0.0
+        name: python-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: otropaso7-service
+spec:
+  type: LoadBalancer
+  ports: 
+    - targetPort: 2000
+      port: 2000
+  selector: 
+     app: otropaso7-deployment
